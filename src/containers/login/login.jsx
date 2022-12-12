@@ -5,9 +5,14 @@ import './CSS/login.less'
 import logo from '../../assets/images/logo.png'
 import { Button, Form, Input } from 'antd';
 import { UserOutlined,LockOutlined } from '@ant-design/icons';
+import {connect} from 'react-redux'
+import {createDemo1Action, createDemo2Action} from '../../redux/action_creates/test_action'
 
 
-export default class Login extends Component {
+ class Login extends Component {
+  componentDidMount(){
+    console.log(this.props);
+  }
   handlerSubmit = () =>{
     alert('登录')
   }
@@ -16,7 +21,7 @@ export default class Login extends Component {
       <div className='login'>
           <header>
               <img src={logo} alt='logo' />
-              <h1>Omnivision Web Portal</h1>
+              <h1>Omnivision Web Portal  {this.props.demo}</h1>
           </header>
           <section>
             <h1>用户登录</h1>
@@ -64,6 +69,7 @@ export default class Login extends Component {
     )
   }
 
+
   PasswordValidator = () => {
 
   }
@@ -72,3 +78,11 @@ export default class Login extends Component {
   //   throw new Error('Something wrong!');
   // }
 }
+
+export default connect(
+  state => ({demo:state.test}),
+  {
+      demo1:createDemo1Action,
+      demo2:createDemo2Action
+  }
+)(Login)

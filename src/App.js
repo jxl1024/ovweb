@@ -3,8 +3,10 @@ import './App.less';
 // 引入注册路径
 import { Route,Routes } from 'react-router-dom';
 // 引入路由组件
-import Login from './pages/login/login'
-import Admin from './pages/admin/admin'
+// import Login from './pages/login/login'
+// import Admin from './pages/admin/admin'
+import Login from './containers/login/login'
+import Admin from './containers/admin/admin'
 import { Component } from 'react';
 
 export default class App extends Component{
